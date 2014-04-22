@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author      Tsvetan Stoychev <tsvetan.stoychev@jarlssen.de>
+* @website     http://www.jarlssen.de
+*/
+-->
+<config>
+    <modules>
+        <Jarlssen_ChooserWidget>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Catalog/>
+            </depends>
+        </Jarlssen_ChooserWidget>
+    </modules>
+</config>

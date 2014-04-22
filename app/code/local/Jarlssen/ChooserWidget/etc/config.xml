@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author      Tsvetan Stoychev <tsvetan.stoychev@jarlssen.de>
+ * @website     http://www.jarlssen.de
+ */
+-->
+<config>
+    <modules>
+        <Jarlssen_ChooserWidget>
+            <version>0.0.1</version>
+        </Jarlssen_ChooserWidget>
+    </modules>
+
+    <global>
+        <helpers>
+            <jarlssen_chooser_widget>
+                <class>Jarlssen_ChooserWidget_Helper</class>
+            </jarlssen_chooser_widget>
+        </helpers>
+    </global>
+
+    <default>
+        <jarlssen_chooser_widget>
+            <chooser_defaults>
+                <catalog_product_widget_chooser>
+                    <input_label>Product</input_label>
+                    <button_text>Select Product...</button_text>
+                </catalog_product_widget_chooser>
+                <catalog_category_widget_chooser>
+                    <input_label>Category</input_label>
+                    <button_text>Select Category...</button_text>
+                </catalog_category_widget_chooser>
+                <cms_block_widget_chooser>
+                    <input_label>Block</input_label>
+                    <button_text>Select Block...</button_text>
+                </cms_block_widget_chooser>
+                <cms_page_widget_chooser>
+                    <input_label>CMS Page</input_label>
+                    <button_text>Select CMS Page...</button_text>
+                </cms_page_widget_chooser>
+                <default>
+                    <input_label>Element</input_label>
+                    <button_text>Select...</button_text>
+                </default>
+            </chooser_defaults>
+        </jarlssen_chooser_widget>
+    </default>
+
+</config>
