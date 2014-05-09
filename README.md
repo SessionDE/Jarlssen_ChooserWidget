@@ -120,8 +120,8 @@ $chooserHelper->createChooser($model, $fieldset, $customChooserConfig, chooserBl
 *Data representation*
 
 | Chooser  | Format | Example |
-| ------------- | ------------- |
-| Product  | * product/{product_id}/{category_id} * *{category_id} is optional* | * product/14509 * product/14509/32 |
+| ------------- | ------------- | ------------- |
+| Product  |  product/{product_id}/{category_id} / *{category_id} is optional* | product/14509 / product/14509/32 |
 | Category | category/{category_id} | category/22 |
 | CMS Page | {cms_page_id} | 7 |
 | Static Block | {static_block_id} | 3 |
