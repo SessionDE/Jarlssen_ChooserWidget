@@ -107,7 +107,7 @@ $chooserHelper = Mage::helper('jarlssen_chooser_widget/chooser');
 
 $customChooserConfig = array(
     'input_name'  => 'entity_link',
-    'input_label' => $this->__(‘Custom entity),
+    'input_label' => $this->__('Custom entity'),
     'button_text' => $this->__('Select entity…'),
     'required'    => true
 );
