@@ -1,0 +1,13 @@
+{
+    "name": "jarlssen/chooser-widget",
+    "description": "Fork from a project found on github we could use",
+    "license": "?",
+    "authors": [
+        {
+            "name": "John Doe",
+            "email": "no@idea.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
