@@ -16,7 +16,7 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
 
     const REQUIRED_HANDLE = 'editor';
 
-    protected $_hasRequiredHandle = null;
+    protected $_hasRequiredHandle;
 
     protected $_requiredConfigValues = array('input_name');
 
@@ -159,6 +159,8 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
             ->setFieldsetId($fieldset->getId())
             ->prepareElementHtml($element);
 
+        $this->_fixChooserAjaxUrl($element);
+
         return $this;
     }
 
@@ -280,5 +282,39 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
                     'type' => $blockAlias
                 )
         );
+    }
+
+    /**
+     * Replaces part of the chooser ajax fetch url,
+     * because we hit 404 page when we have routers defined in the following way:
+     *
+     * 	<admin>
+     *       <routers>
+     *           <brands>
+     *               <use>admin</use>
+     *               <args>
+     *                   <module>MyCompany_MyModule</module>
+     *                   <frontName>myfrontname</frontName>
+     *               </args>
+     *           </brands>
+     *       </routers>
+     *   </admin>
+     *
+     * Basically we just replace "myfrontname" with the admin front name
+     *
+     * @param Varien_Data_Form_Element_Abstract $element
+     */
+    protected function _fixChooserAjaxUrl($element)
+    {
+        $adminPath = (string)Mage::getConfig()
+            ->getNode(Mage_Adminhtml_Helper_Data::XML_PATH_ADMINHTML_ROUTER_FRONTNAME);
+
+        $currentRouterName = Mage::app()->getRequest()->getRouteName();
+
+        if($adminPath != $currentRouterName) {
+            $afterElementHtml = $element->getAfterElementHtml();
+            $afterElementHtml = str_replace('/' . $currentRouterName . '/','/' . $adminPath . '/', $afterElementHtml);
+            $element->setAfterElementHtml($afterElementHtml);
+        }
     }
 }
