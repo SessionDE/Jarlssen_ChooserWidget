@@ -114,7 +114,7 @@ $customChooserConfig = array(
 
 $chooserBlock = 'custom_module/chooser';
 
-$chooserHelper->createChooser($model, $fieldset, $customChooserConfig, chooserBlock);
+$chooserHelper->createChooser($model, $fieldset, $customChooserConfig, $chooserBlock);
 ```
 
 *Data representation*
