@@ -175,7 +175,8 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
     protected function _checkRequiredHandle()
     {
         if(null === $this->_hasRequiredHandle) {
-            $handles = Mage::getSingleton('core/layout')->getUpdate()->getHandles();
+            $handles = Mage::app()->getLayout()->getUpdate()->getHandles();
+
             if(!in_array(self::REQUIRED_HANDLE, $handles)) {
                 throw new Exception("Required handle \"" . self::REQUIRED_HANDLE . "\" is missing. You have to add the handle in the layout in favor to have working chooser.");
             }
