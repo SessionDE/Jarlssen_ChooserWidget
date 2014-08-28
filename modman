@@ -1,2 +1,2 @@
-/app/code/local/Jarlssen/ChooserWidget /app/code/local/Jarlssen/ChooserWidget
-/app/etc/modules/Jarlssen_ChooserWidget.xml /app/etc/modules/Jarlssen_ChooserWidget.xml
+app/code/local/Jarlssen/ChooserWidget/*         app/code/local/Jarlssen/ChooserWidget/
+app/etc/modules/Jarlssen_ChooserWidget.xml      app/etc/modules/Jarlssen_ChooserWidget.xml
