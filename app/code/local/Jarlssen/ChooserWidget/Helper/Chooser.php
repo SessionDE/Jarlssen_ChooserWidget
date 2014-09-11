@@ -259,7 +259,11 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
             'required' => $isRequired
         );
 
-        $element = $fieldset->addField($config['input_name'], 'label', $inputConfig);
+        if (!isset($config['input_id'])) {
+            $config['input_id'] = $config['input_name'];
+        }
+
+        $element = $fieldset->addField($config['input_id'], 'label', $inputConfig);
         $element->setValue($dataModel->getData($element->getId()));
         $dataModel->setData($element->getId(),'');
 
