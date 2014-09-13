@@ -30,7 +30,8 @@ The array $config also can contain more elements, but they are not mandatory:
  * 'input_label' - The text of the input label
  * 'button_text' - The text of the chooser button
  * 'required' - If it’s true, then we will have frontend validation and to pass it we need to choose something from the chooser
-
+ * 'input_id' - If you don't specify this parameter the input id will be same as the input name. Thanks to @bmcg for his pull request. He found, that useful when he want's to have input name, that contains square brackets.
+ 
 Example of config array:
 
 ```php
@@ -38,7 +39,8 @@ $categoryConfig = array(
     'input_name'  => 'entity_link',
     'input_label' => $this->__('Product'),
     'button_text' => $this->__('Select Product...'),
-    'required'    => true
+    'required'    => true,
+    'input_id'    => 'my_custom_id'
 );
 ```
 
