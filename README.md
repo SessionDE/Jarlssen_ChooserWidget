@@ -9,6 +9,20 @@ There are 4 important things you need to do to make the chooser work:
 
 It's required to add in the layout update a handle called "editor". This handle includes the JS logic that is needed to render the chooser popups
 
+```xml
+<?xml version="1.0"?>
+<layout>
+
+    <adminhtml_my_module_item_edit>
+        <reference name="content">
+            <block type="my_module/adminhtml_item_edit" name="item_edit" />
+        </reference>
+        <update handle="editor"/>
+    </adminhtml_my_module_item_edit>
+
+</layout>
+```
+
 After that in method _prepareForm() of your admin form you need to have an instance of helper 'jarlssen_chooser_widget/chooser' and pass some parameters to the function creating the chooser.
 
 Use any of the chooser create functions of Jarlssen_ChooserWidget_Helper_Chooser:
