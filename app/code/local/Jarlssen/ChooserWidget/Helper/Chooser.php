@@ -14,8 +14,6 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
 
     const XML_PATH_DEFAULT_CHOOSER_CONFIG = 'jarlssen_chooser_widget/chooser_defaults';
 
-    const REQUIRED_HANDLE = 'editor';
-
     protected $_hasRequiredHandle;
 
     protected $_requiredConfigValues = array('input_name');
@@ -145,8 +143,7 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
      */
     protected function _prepareChooser($dataModel, $fieldset, $config, $blockAlias)
     {
-        $this->_checkRequiredHandle()
-                ->_checkRequiredConfigs($config)
+        $this->_checkRequiredConfigs($config)
                 ->_populateMissingConfigValues($config, $blockAlias);
 
         $chooserConfigData = $this->_prepareChooserConfig($config, $blockAlias);
@@ -160,28 +157,6 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
             ->prepareElementHtml($element);
 
         $this->_fixChooserAjaxUrl($element);
-
-        return $this;
-    }
-
-    /**
-     * Checks if required handle "editor" is added in the layout update
-     * If the handle is not in the layout, then we throw exception and
-     * warn the developer, that the handle is required for the chooser functionality
-     *
-     * @return Jarlssen_ChooserWidget_Helper_Chooser
-     * @throws Exception
-     */
-    protected function _checkRequiredHandle()
-    {
-        if(null === $this->_hasRequiredHandle) {
-            $handles = Mage::app()->getLayout()->getUpdate()->getHandles();
-
-            if(!in_array(self::REQUIRED_HANDLE, $handles)) {
-                throw new Exception("Required handle \"" . self::REQUIRED_HANDLE . "\" is missing. You have to add the handle in the layout in favor to have working chooser.");
-            }
-            $this->_hasRequiredHandle = true;
-        }
 
         return $this;
     }
