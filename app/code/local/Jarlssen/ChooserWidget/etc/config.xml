@@ -12,12 +12,29 @@
         </Jarlssen_ChooserWidget>
     </modules>
 
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <jarlssen_chooserWidget before="Mage_Adminhtml">Jarlssen_ChooserWidget_Adminhtml</jarlssen_chooserWidget>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
     <global>
         <helpers>
             <jarlssen_chooser_widget>
                 <class>Jarlssen_ChooserWidget_Helper</class>
             </jarlssen_chooser_widget>
         </helpers>
+        <blocks>
+            <jarlssen_chooser_widget>
+                <class>Jarlssen_ChooserWidget_Block</class>
+            </jarlssen_chooser_widget>
+        </blocks>
     </global>
 
     <default>
