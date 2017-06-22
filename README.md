@@ -1,7 +1,7 @@
 Jarlssen_ChooserWidget
 ======================
 
-Magento extension that gives the ability to create Product, Category, CMS Page and Static Block choosers in generic admin forms.
+Magento extension that gives the ability to create Product, Category, Customer, CMS Page and Static Block choosers in generic admin forms.
 
 Here you can read my original blog post about the extension: http://www.jarlssen.de/blog/2014/04/24/magento-chooser-widget-add-edit-admin-forms
 
@@ -30,6 +30,7 @@ Use any of the chooser create functions of Jarlssen_ChooserWidget_Helper_Chooser
  * createCategoryChooser
  * createCmsPageChooser
  * createCmsBlockChooser
+ * createCustomerChooser
  * createChooser
 
 There is a required config value called "input_name" and must be passed to the chooser through a configuration array.
@@ -72,7 +73,7 @@ $productConfig = array(
     'required'    => true
 );
  
-$chooserHelper->createCategoryChooser($model, $fieldset, $productConfig);
+$chooserHelper->createProductChooser($model, $fieldset, $productConfig);
 ```
 
 Category Chooser:
@@ -86,7 +87,7 @@ $categoryConfig = array(
     'required'    => true
 );
 
-$chooserHelper->createProductChooser($model, $fieldset, $categoryConfig);
+$chooserHelper->createCategoryChooser($model, $fieldset, $categoryConfig);
 ```
 
 Static Block Chooser:
@@ -117,6 +118,20 @@ $cmsPageConfig = array(
 $chooserHelper->createCmsPageChooser($model, $fieldset, $cmsPageConfig);
 ```
 
+Example for Customer Chooser:
+```php
+$chooserHelper = Mage::helper('jarlssen_chooser_widget/chooser');
+
+$cmsPageConfig = array(
+    'input_name'  => 'entity_link',
+    'input_label' => $this->__('Customer'),
+    'button_text' => $this->__('Select Customer…'),
+    'required'    => true
+);
+
+$chooserHelper->createCustomerChooser($model, $fieldset, $cmsPageConfig);
+```
+
 Example for Custom Chooser:
 ```php
 $chooserHelper = Mage::helper('jarlssen_chooser_widget/chooser');
@@ -141,5 +156,6 @@ $chooserHelper->createChooser($model, $fieldset, $customChooserConfig, $chooserB
 | Category | category/{category_id} | category/22 |
 | CMS Page | {cms_page_id} | 7 |
 | Static Block | {static_block_id} | 3 |
+| Customer | {customer_id} | 15 |
 | Custom | N/A | N/A  |
 

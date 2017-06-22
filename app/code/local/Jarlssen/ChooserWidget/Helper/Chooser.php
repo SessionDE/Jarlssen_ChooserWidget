@@ -10,11 +10,12 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
     const PRODUCT_CHOOSER_BLOCK_ALIAS    = 'adminhtml/catalog_product_widget_chooser';
     const CATEGORY_CHOOSER_BLOCK_ALIAS   = 'adminhtml/catalog_category_widget_chooser';
     const CMS_PAGE_CHOOSER_BLOCK_ALIAS   = 'adminhtml/cms_page_widget_chooser';
-    const CMS_BLOCK_CHOOSER_BLOCK_ALIAS  = 'adminhtml/cms_block_widget_chooser';
+	const CMS_BLOCK_CHOOSER_BLOCK_ALIAS  = 'adminhtml/cms_block_widget_chooser';
+	const CUSTOMER_CHOOSER_BLOCK_ALIAS   = 'jarlssen_chooser_widget/customerChooser';
 
-    const XML_PATH_DEFAULT_CHOOSER_CONFIG = 'jarlssen_chooser_widget/chooser_defaults';
+	const XML_PATH_DEFAULT_CHOOSER_CONFIG = 'jarlssen_chooser_widget/chooser_defaults';
 
-    protected $_hasRequiredHandle;
+	protected $_hasRequiredHandle;
 
     protected $_requiredConfigValues = array('input_name');
 
@@ -48,6 +49,12 @@ class Jarlssen_ChooserWidget_Helper_Chooser extends Mage_Core_Helper_Abstract
     public function createCategoryChooser($dataModel, $fieldset, $config)
     {
         $blockAlias = self::CATEGORY_CHOOSER_BLOCK_ALIAS;
+        $this->_prepareChooser($dataModel, $fieldset, $config, $blockAlias);
+        return $this;
+    }
+
+	public function createCustomerChooser($dataModel, $fieldset, $config){
+		$blockAlias = self::CUSTOMER_CHOOSER_BLOCK_ALIAS;
         $this->_prepareChooser($dataModel, $fieldset, $config, $blockAlias);
         return $this;
     }
